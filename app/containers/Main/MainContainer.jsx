@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function MainContainer() {
+function MainContainer () {
   return (
-    <p>Hello World!</p>
-  );
+    <p>{'Hello World!'}</p>
+  )
 }
 
-export default MainContainer;
+export default MainContainer
