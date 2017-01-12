@@ -1,14 +1,7 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-
-function Main() {
-  return (
-    <p>Hello World!</p>
-  );
-}
-
+import routes from './config/routes';
 
 ReactDOM.render(
-  <Main />,
+  routes,
   document.getElementById('app'),
 );
