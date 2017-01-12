@@ -18,8 +18,12 @@
     "jsx-a11y",
     "import"
   ],
-  extends: ["airbnb", "eslint:recommended", "plugin:react/recommended", "standard"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "standard"],
   rules: {
+    "comma-dangle" : [2, "always-multiline"],
+    "max-len": ["error", 100],
+    "no-console": [2, {allow: ["warn", "error"]}],
+    "no-var": "error",
     "react/jsx-no-literals": 2,
     "react/no-did-mount-set-state": "off"
   }

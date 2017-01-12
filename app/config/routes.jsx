@@ -1,6 +1,6 @@
 import React from 'react'
 import { hashHistory, Router } from 'react-router'
-import { MainContainer } from '../containers'
+import { MainContainer } from 'containers'
 
 const routes = (
   <Router history={hashHistory}>
