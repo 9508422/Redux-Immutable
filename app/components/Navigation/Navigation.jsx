@@ -10,10 +10,6 @@ function NavLinks ({isAuthed}) {
   : null
 }
 
-NavLinks.propTypes = {
-  isAuthed: PropTypes.bool.isRequired,
-}
-
 function ActionLinks ({isAuthed}) {
   return isAuthed
   ? <ul>
@@ -24,10 +20,6 @@ function ActionLinks ({isAuthed}) {
       <li><Link to='/'>{'Home'}</Link></li>
       <li><Link to='/auth'>{'Authenticate'}</Link></li>
     </ul>
-}
-
-ActionLinks.propTypes = {
-  isAuthed: PropTypes.bool.isRequired,
 }
 
 export default function Navigation ({ isAuthed }) {
@@ -41,6 +33,6 @@ export default function Navigation ({ isAuthed }) {
   )
 }
 
-Navigation.propTypes = {
+ActionLinks.propTypes = Navigation.propTypes = NavLinks.propTypes = {
   isAuthed: PropTypes.bool.isRequired,
 }
