@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { container, inner } from './styles'
+import { Navigation } from 'components'
 
-function MainContainer () {
+export default function MainContainer (props) {
   return (
-    <p>{'yo!'}</p>
+    <div className={container}>
+      <Navigation isAuthed={false} />
+      <div className={inner}>
+        {props.children}
+      </div>
+    </div>
   )
 }
 
-export default MainContainer
+MainContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+}

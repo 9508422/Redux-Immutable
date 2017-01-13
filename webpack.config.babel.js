@@ -35,15 +35,25 @@ const base = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loader: 'style!css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: [
+          'style?sourceMap',
+          'css?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          'sass?sourceMap',
+        ],
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.scss'],
     root: path.resolve('./app'),
   },
 }

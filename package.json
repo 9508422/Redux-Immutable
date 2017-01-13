@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "production": "webpack -p",
-    "lint": "eslint app/. --ext=js --ext=jsx; exit 0",
-    "fix": "eslint app/. --ext=js --ext=jsx --fix; exit 0"
+    "lint": "sass-lint 'app/**/*.scss' --no-exit --verbose; eslint app/. --ext=js --ext=jsx; exit 0",
+    "fix": "sass-lint 'app/**/*.scss' --no-exit --verbose; eslint app/. --ext=js --ext=jsx --fix; exit 0"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.13.1",
-    "eslint-config-airbnb": "^14.0.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-import-resolver-webpack": "^0.8.0",
     "eslint-plugin-import": "^2.2.0",
@@ -44,6 +43,9 @@
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-standard": "^2.0.1",
     "html-webpack-plugin": "^2.26.0",
+    "node-sass": "^4.3.0",
+    "sass-lint": "^1.10.2",
+    "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
