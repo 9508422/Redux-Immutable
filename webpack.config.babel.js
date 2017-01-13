@@ -37,16 +37,12 @@ const base = {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style!css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
-      },
-      {
         test: /\.scss$/,
         exclude: /node_modules/,
         loaders: [
           'style?sourceMap',
-          'css?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss?sourceMap',
           'sass?sourceMap',
         ],
       },

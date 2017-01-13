@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
-import { container, inner } from './styles'
 import { Navigation } from 'components'
+import { container, inner } from './styles'
 
 export default function MainContainer (props) {
   return (

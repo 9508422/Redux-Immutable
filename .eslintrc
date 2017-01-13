@@ -1,34 +1,41 @@
 {
-  env: {
-    browser: true,
-    es6: true,
-    node: true
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
   },
-  parser: "babel-eslint",
-  parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      jsx: true,
-      experimentalObjectRestSpread: true
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
     }
   },
-  plugins: [
+  "plugins": [
     "import",
     "jsx-a11y",
     "react"
   ],
-  extends: [
+  "extends": [
     "eslint:recommended",
-    "plugin:jsx-a11y/recommended",
+    "airbnb",
     "plugin:react/recommended",
     "standard"
   ],
-  rules: {
+  "settings": {
+    "import/resolver": "webpack",
+  },
+  "rules": {
     "comma-dangle" : [2, "always-multiline"],
     "max-len": ["error", 100],
     "no-console": [2, {allow: ["warn", "error"]}],
     "no-var": "error",
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/no-webpack-loader-syntax": 0,
     "react/jsx-filename-extension": "error",
     "react/jsx-no-literals": 2,
     "react/no-did-mount-set-state": "off"

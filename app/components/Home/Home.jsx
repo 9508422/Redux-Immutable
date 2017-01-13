@@ -1,14 +1,14 @@
 import React from 'react'
-import { container, slogan, title } from './styles'
+import { CenteredContainer, LargeHeader, SubHeader } from 'atoms'
 
 export default function Home (props) {
   return (
-    <div className={container}>
-      <p className={title}>{'Duckr'}</p>
-      <p className={slogan}>
+    <CenteredContainer>
+      <LargeHeader>{'Duck'}</LargeHeader>
+      <SubHeader>
         {'The real time, cloud based, modular, scalable, growth hack, social platform. In the \
           cloud.'}
-      </p>
-    </div>
+      </SubHeader>
+    </CenteredContainer>
   )
 }

@@ -1,25 +1,25 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import { container, nav } from './styles'
 
-function NavLinks ({isAuthed}) {
+function NavLinks ({ isAuthed }) {
   return isAuthed
   ? <ul>
-      <li><Link to='/'>{'Home'}</Link></li>
-    </ul>
+    <li><Link to="/">{'Home'}</Link></li>
+  </ul>
   : null
 }
 
-function ActionLinks ({isAuthed}) {
+function ActionLinks ({ isAuthed }) {
   return isAuthed
   ? <ul>
-      <li>{'New Duck'}</li>
-      <li><Link to='/logout'>{'Logout'}</Link></li>
-    </ul>
+    <li>{'New Duck'}</li>
+    <li><Link to="/logout">{'Logout'}</Link></li>
+  </ul>
   : <ul>
-      <li><Link to='/'>{'Home'}</Link></li>
-      <li><Link to='/auth'>{'Authenticate'}</Link></li>
-    </ul>
+    <li><Link to="/">{'Home'}</Link></li>
+    <li><Link to="/auth">{'Authenticate'}</Link></li>
+  </ul>
 }
 
 export default function Navigation ({ isAuthed }) {
