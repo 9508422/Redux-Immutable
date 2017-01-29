@@ -35,12 +35,14 @@ const base = {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+      { test: /\.css$/, include: /normalize.css/, loaders: ['style?sourceMap', 'css?sourceMap'] },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
+        include: /app/,
+        exclude: /\/styles\//,
         loaders: [
           'style?sourceMap',
-          'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          'css?sourceMap&modules&camelCase=dashes&localIdentName=[name]__[local]___[hash:base64:5]',
           'postcss?sourceMap',
           'sass?sourceMap',
         ],

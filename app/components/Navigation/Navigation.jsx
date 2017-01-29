@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-import { container, nav } from './styles'
+import { container, navContainer } from './styles'
 
 function NavLinks ({ isAuthed }) {
   return isAuthed
@@ -25,7 +25,7 @@ function ActionLinks ({ isAuthed }) {
 export default function Navigation ({ isAuthed }) {
   return (
     <div className={container}>
-      <nav className={nav}>
+      <nav className={navContainer}>
         <NavLinks isAuthed={isAuthed} />
         <ActionLinks isAuthed={isAuthed} />
       </nav>

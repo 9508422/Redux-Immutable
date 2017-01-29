@@ -5,7 +5,7 @@ import { container, inner } from './styles'
 export default function MainContainer (props) {
   return (
     <div className={container}>
-      <Navigation isAuthed={false} />
+      <Navigation isAuthed />
       <div className={inner}>
         {props.children}
       </div>
