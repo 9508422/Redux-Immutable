@@ -1,7 +1,7 @@
 {
   "name": "Redux-Immutable",
   "version": "1.0.0",
-  "description": "<img src=\"https://cloud.githubusercontent.com/assets/2933430/21000144/6e6cfa86-bcd6-11e6-950c-149059841f19.png\" width=\"250\" align=\"right\">",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",

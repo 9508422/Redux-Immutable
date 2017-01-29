@@ -4,6 +4,16 @@
     uid
     avatar
 
+/notifications
+  uid
+    notificationId
+      type
+      author
+      authorAvatar
+      uid (of author)
+      duckId
+      timestamp
+
 /ducks
   duckId
     avatar
@@ -11,11 +21,11 @@
     name
     text
     timestamp
-    uid
-
+    uid (of duck author)
 
 /likeCount
   duckId
+    0
 
 /usersDucks
   uid
@@ -25,7 +35,7 @@
       name
       text
       timestamp
-      uid
+      uid (of duck author)
 
 /replies
   duckId
@@ -38,4 +48,4 @@
 
 /usersLikes
   uid
-    duckId
+    duckId: true

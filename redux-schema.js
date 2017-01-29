@@ -10,16 +10,14 @@
         name,
         uid,
         avatar,
-      },
-    },
+      }
+    }
   },
   modal: {
     duck,
-    isOpen,
+    isOpen
   },
   ducks: {
-    isFetching,
-    error,
     [duckId]: {
       lastUpdated,
       info: {
@@ -29,43 +27,47 @@
         text,
         timestamp,
         uid,
-      },
-    },
-  },
-  usersDucks: {
-    [uid]: {
-      lastUpdated,
-      duckIds: [duckId, ...],
-    },
+      }
+    }
   },
   likeCount: {
-    [duckId]: 0,
+    [duckId]: 0
+  },
+  usersDucks: {
+    isFetching,
+    error,
+    [uid]: {
+      lastUpdated,
+      duckIds: [duckId, duckId, duckId]
+    }
   },
   usersLikes: {
-    [duckId]: true,
-  },
+    duckid: true,
+  }
+  feed: {
+    isFetching,
+    error,
+    newDucksAvailable,
+    duckIdsToAdd: [duckId, duckId],
+    duckIds: [duckid, duckId, duckId]
+  }
   replies: {
+    isFetching,
+    error,
     [duckId]: {
+      lastUpdated,
       replies: {
         [replyId]: {
-          lastUpdated,
           name,
-          comment,
+          reply,
           uid,
           timestamp,
-          avatar,
+          avatar
         }
       }
     }
   },
   listeners: {
-    [listenerId]: true,
-  },
-  feed: {
-    isFetching,
-    error,
-    newDucksAvailable,
-    duckIdsToAdd: [duckId, ...],
-    duckIds: [duckId, ...],
-  },
-},
+    [listenerId]: true
+  }
+}
