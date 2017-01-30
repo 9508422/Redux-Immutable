@@ -34,8 +34,8 @@ const base = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, include: /normalize.css/, loaders: ['style?sourceMap', 'css?sourceMap'] },
+      { test: /\.jsx?$/, include: /app/, loader: 'babel' },
+      { test: /\.css$/, include: /sanitize.css/, loaders: ['style?sourceMap', 'css?sourceMap'] },
       {
         test: /\.scss$/,
         include: /app/,
@@ -50,7 +50,7 @@ const base = {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
+    extensions: ['', '.js', '.jsx', '.css', '.scss'],
     root: path.resolve('./app'),
   },
 }

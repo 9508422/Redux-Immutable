@@ -1,0 +1,17 @@
+$blue: #3b5998;
+$blue-dark: #1542a0;
+$white: #fff;
+
+.button {
+  background-color: $blue;
+  border-radius: 5px;
+  border-width: 5px;
+  color: $white;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 15px;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
