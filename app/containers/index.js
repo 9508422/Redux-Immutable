@@ -1,3 +1,6 @@
 export AuthenticateContainer from './Authenticate/AuthenticateContainer'
+export FeedContainer from './Feed/FeedContainer'
 export HomeContainer from './Home/HomeContainer'
+export LogoutContainer from './Logout/LogoutContainer'
 export MainContainer from './Main/MainContainer'
+export ModalContainer from './Modal/ModalContainer'

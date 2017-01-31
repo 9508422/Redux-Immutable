@@ -1,0 +1,28 @@
+$blue: #1877e6;
+$grey: #c6c6c6;
+$white: #fff;
+
+.new-duck-top {
+  align-items: center;
+  background-color: $white;
+  color: $blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 11px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.submit-duck-btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 150px;
+
+  &:disabled {
+    background-color: $grey;
+    border: 1px solid $grey;
+  }
+}

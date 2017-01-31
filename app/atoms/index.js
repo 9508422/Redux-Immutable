@@ -1,4 +1,6 @@
+export BaseTextArea from './BaseTextArea/BaseTextArea'
 export CenteredContainer from './CenteredContainer/CenteredContainer'
+export DarkBtn from './DarkBtn/DarkBtn'
 export ErrorMessage from './ErrorMessage/ErrorMessage'
 export LargeHeader from './LargeHeader/LargeHeader'
 export SubHeader from './SubHeader/SubHeader'
