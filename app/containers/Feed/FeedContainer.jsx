@@ -10,10 +10,11 @@ class FeedContainer extends Component {
   }
 
   render () {
-    const { error, newDucksAvailable, isFetching, resetNewDucksAvailable } = this.props
+    const { duckIds, error, newDucksAvailable, isFetching, resetNewDucksAvailable } = this.props
 
     return (
       <Feed
+        duckIds={duckIds}
         error={error}
         isFetching={isFetching}
         newDucksAvailable={newDucksAvailable}
@@ -24,6 +25,7 @@ class FeedContainer extends Component {
 }
 
 FeedContainer.propTypes = {
+  duckIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   error: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   newDucksAvailable: PropTypes.bool.isRequired,
@@ -36,8 +38,8 @@ function mapDispatchToProps (disptch) {
 }
 
 function mapStateToProps ({ feed }) {
-  const { error, isFetching, newDucksAvailable } = feed
-  return { error, isFetching, newDucksAvailable }
+  const { duckIds, error, isFetching, newDucksAvailable } = feed
+  return { duckIds, error, isFetching, newDucksAvailable }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedContainer)

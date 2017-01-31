@@ -1,4 +1,5 @@
 export AuthenticateContainer from './Authenticate/AuthenticateContainer'
+export DuckContainer from './Duck/DuckContainer'
 export FeedContainer from './Feed/FeedContainer'
 export HomeContainer from './Home/HomeContainer'
 export LogoutContainer from './Logout/LogoutContainer'

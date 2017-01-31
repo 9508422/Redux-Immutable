@@ -1,5 +1,6 @@
 export Authenticate from './Authenticate/Authenticate'
 export CustomModal from './CustomModal/CustomModal'
+export Duck from './Duck/Duck'
 export FacebookAuthButton from './FacebookAuthButton/FacebookAuthButton'
 export Feed from './Feed/Feed'
 export Home from './Home/Home'
