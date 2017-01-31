@@ -7,10 +7,10 @@ $white: #fff;
 }
 
 .content {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 18px;
   background-color: $white;
   border-radius: 3px;
-  flex: 1;
-  font-size: 18px;
-  padding: 8px 10px;
   resize: none;
 }

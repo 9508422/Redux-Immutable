@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as userActionCreators from 'redux/modules/users'
+import * as usersLikesActionCreators from 'redux/modules/usersLikes'
 import { Navigation } from 'components'
 import { firebaseAuth } from 'config/constants'
 import { formatUserInfo } from 'helpers/utils'
@@ -15,6 +16,7 @@ class MainContainer extends Component {
         const userInfo = formatUserInfo(userData.displayName, userData.photoURL, user.uid)
         this.props.authUser(user.uid)
         this.props.fetchingUserSuccess(user.uid, userInfo, Date.now())
+        this.props.setUsersLikes()
         if (this.props.location.pathname === '/') {
           this.props.router.replace('feed')
         }
@@ -49,9 +51,10 @@ MainContainer.propTypes = {
   router: PropTypes.shape({
     replace: PropTypes.func.isRequired,
   }).isRequired,
+  setUsersLikes: PropTypes.func.isRequired,
 }
 
 export default connect(
   ({ users }) => ({ isAuthed: users.isAuthed, isFetching: users.isFetching }),
-  dispatch => bindActionCreators(userActionCreators, dispatch)
+  dispatch => bindActionCreators({ ...userActionCreators, ...usersLikesActionCreators }, dispatch)
 )(MainContainer)

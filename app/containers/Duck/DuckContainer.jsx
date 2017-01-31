@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import * as usersLikesActions from 'redux/modules/usersLikes'
 import { Duck } from 'components'
 
 class DuckContainer extends Component {
   goToProfile (event) {
     event.stopPropagation()
-    this.context.router.push(`/${this.props.duck.uid}`)
+    this.context.router.push(`${this.props.duck.uid}`)
   }
 
-  handleClick () {
+  handleClick (event) {
     event.stopPropagation()
     this.context.router.push(`duckDetail/${this.props.duck.uid}`)
   }
@@ -25,15 +27,16 @@ class DuckContainer extends Component {
       numberOfLikes,
     } = this.props
 
-    const onClick = hideReplyBtn ? null : this.handleClick
+    const onClick = hideReplyBtn ? null : event => this.handleClick(event)
     return (
       <Duck
         addAndHandleLike={addAndHandleLike}
         duck={duck}
         duckId={duckId}
-        goToProfile={this.goToProfile}
+        goToProfile={event => this.goToProfile(event)}
         handleDeleteLike={handleDeleteLike}
         hideLikeCount={hideLikeCount}
+        hideReplyBtn={hideReplyBtn}
         isLiked={isLiked}
         numberOfLikes={numberOfLikes}
         onClick={onClick}
@@ -65,6 +68,10 @@ DuckContainer.propTypes = {
   numberOfLikes: PropTypes.number,
 }
 
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators(usersLikesActions, dispatch)
+}
+
 function mapStateToProps ({ ducks, likeCount, usersLikes }, props) {
   const { duckId, hideLikeCount, hideReplyBtn } = props
   return {
@@ -76,4 +83,4 @@ function mapStateToProps ({ ducks, likeCount, usersLikes }, props) {
   }
 }
 
-export default connect(mapStateToProps)(DuckContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(DuckContainer)

@@ -3,13 +3,13 @@ $blue-dark: #1542a0;
 $white: #fff;
 
 .button {
-  background-color: $blue;
-  border-radius: 5px;
-  border-width: 5px;
+  padding: 15px;
+  font-size: 25px;
   color: $white;
   cursor: pointer;
-  font-size: 25px;
-  padding: 15px;
+  background-color: $blue;
+  border-width: 5px;
+  border-radius: 5px;
 
   &:hover {
     background-color: $blue-dark;

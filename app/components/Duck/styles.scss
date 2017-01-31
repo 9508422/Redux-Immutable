@@ -1,0 +1,93 @@
+$blue: #4a90e2;
+$grey-lightest: #f1f1f1;
+
+.clickable {
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.icon {
+  composes: clickable;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// ---
+
+.action-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.author {
+  composes: clickable;
+}
+
+.avatar {
+  width: 75px;
+  margin-right: 15px;
+  border-radius: 3px;
+}
+
+.content-container {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.duck-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 450px;
+  padding: 10px;
+  margin: 15px auto;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background: $grey-lightest;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.liked-icon {
+  composes: icon;
+  color: $blue;
+}
+
+.like-reply-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.text {
+  padding: 8px 0;
+  font-size: 20px;
+  line-height: 25px;
+}

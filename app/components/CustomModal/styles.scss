@@ -3,12 +3,12 @@ $grey: #c6c6c6;
 $white: #fff;
 
 .new-duck-top {
-  align-items: center;
-  background-color: $white;
-  color: $blue;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 11px;
+  color: $blue;
+  background-color: $white;
 }
 
 .pointer {
@@ -17,9 +17,9 @@ $white: #fff;
 
 .submit-duck-btn {
   display: block;
+  width: 150px;
   margin: 0 auto;
   text-align: center;
-  width: 150px;
 
   &:disabled {
     background-color: $grey;

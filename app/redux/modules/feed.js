@@ -42,7 +42,7 @@ function settingFeedListenerSuccess (duckIds) {
 }
 
 export function setAndHandleFeedListener () {
-  let initialFetch = true
+  const initialFetch = true
 
   return (dispatch, getState) => {
     if (getState().listeners.feed) {
