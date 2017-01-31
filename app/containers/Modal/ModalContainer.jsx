@@ -1,10 +1,11 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import * as ducksActionCreators from 'redux/modules/ducks'
 import * as modalActionCreators from 'redux/modules/modal'
 import { CustomModal } from 'components'
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(modalActionCreators, dispatch)
+  return bindActionCreators({ ...ducksActionCreators, ...modalActionCreators }, dispatch)
 }
 
 function mapStateToProps ({ modal, users }) {

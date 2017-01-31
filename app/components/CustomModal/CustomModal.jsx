@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import Modal from 'react-modal'
 import { BaseTextArea, DarkBtn } from 'atoms'
+import { formatDuck } from 'helpers/utils'
 import { newDuckTop, pointer, submitDuckBtn } from './styles'
 
 const modalStyles = {
@@ -15,10 +16,19 @@ const modalStyles = {
 }
 
 export default function CustomModal (props) {
-  const { closeModal, duckText, isOpen, isSubmitDisabled, openModal, updateDuckText, user } = props
+  const {
+    closeModal,
+    duckFanout,
+    duckText,
+    isOpen,
+    isSubmitDisabled,
+    openModal,
+    updateDuckText,
+    user,
+  } = props
+
   function submitDuck () {
-    console.log('Duck: ', duckText)
-    console.log('user: ', user)
+    duckFanout(formatDuck(duckText, user))
   }
 
   return (
@@ -46,6 +56,7 @@ export default function CustomModal (props) {
 
 CustomModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  duckFanout: PropTypes.func.isRequired,
   duckText: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   isSubmitDisabled: PropTypes.bool.isRequired,

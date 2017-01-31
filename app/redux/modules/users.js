@@ -2,22 +2,16 @@ import auth, { logout, saveUser } from 'helpers/auth'
 import { formatUserInfo } from 'helpers/utils'
 
 const AUTH_USER = 'AUTH_USER'
-const UNAUTH_USER = 'UNAUTH_USER'
 const FETCHING_USER = 'FETCHING_USER'
-const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE'
+const FETCHING_USER_ERROR = 'FETCHING_USER_ERROR'
 const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS'
 const REMOVE_FETCHING_USER = 'REMOVE_FETCHING_USER'
+const UNAUTH_USER = 'UNAUTH_USER'
 
 export function authUser (uid) {
   return {
     type: AUTH_USER,
     uid,
-  }
-}
-
-function unauthUser () {
-  return {
-    type: UNAUTH_USER,
   }
 }
 
@@ -27,10 +21,10 @@ function fetchingUser () {
   }
 }
 
-function fetchingUserFailure (error) {
+function fetchingUserError (error) {
   console.error(error)
   return {
-    type: FETCHING_USER_FAILURE,
+    type: FETCHING_USER_ERROR,
     error: 'Error fetching user',
   }
 }
@@ -44,6 +38,12 @@ export function fetchingUserSuccess (uid, userInfo, timestamp) {
   }
 }
 
+function unauthUser () {
+  return {
+    type: UNAUTH_USER,
+  }
+}
+
 export function fetchAndHandleAuthedUser () {
   return (dispatch) => {
     dispatch(fetchingUser())
@@ -54,7 +54,7 @@ export function fetchAndHandleAuthedUser () {
     })
     .then(({ userInfo }) => saveUser(userInfo))
     .then(user => dispatch(authUser(user.uid)))
-    .catch(error => dispatch(fetchingUserFailure(error)))
+    .catch(error => dispatch(fetchingUserError(error)))
   }
 }
 
@@ -120,7 +120,7 @@ export default function users (state = initialState, action) {
         ...state,
         isFetching: true,
       }
-    case FETCHING_USER_FAILURE:
+    case FETCHING_USER_ERROR:
       return {
         ...state,
         isFetching: false,
