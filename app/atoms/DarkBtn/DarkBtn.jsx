@@ -12,12 +12,13 @@ export default function DarkBtn ({ children, className, disabled, onClick }) {
 
 DarkBtn.defaultProps = {
   className: '',
+  disabled: false,
 }
 
 DarkBtn.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 }
 

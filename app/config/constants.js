@@ -10,5 +10,9 @@ const config = {
 
 firebase.initializeApp(config)
 
+export const ducksExpirationLength = 100000
+export const repliesExpirationLength = 300000
+export const userExpirationLength = 100000
+
 export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth

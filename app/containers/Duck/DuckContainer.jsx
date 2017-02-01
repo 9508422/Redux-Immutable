@@ -12,7 +12,7 @@ class DuckContainer extends Component {
 
   handleClick (event) {
     event.stopPropagation()
-    this.context.router.push(`duckDetail/${this.props.duck.uid}`)
+    this.context.router.push(`duckDetail/${this.props.duck.duckId}`)
   }
 
   render () {

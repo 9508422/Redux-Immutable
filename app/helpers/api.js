@@ -9,7 +9,7 @@ export function listenToFeed (callback, errorCallback) {
   }, errorCallback)
 }
 
-// ducks
+// add duck
 function saveToDucks (duck) {
   const duckId = ref.child('ducks').push().key
   const duckPromise = ref.child(`ducks/${duckId}`).set({ ...duck, duckId })
@@ -33,7 +33,7 @@ export function saveDuck (duck) {
   ]).then(() => ({ ...duck, duckId }))
 }
 
-// liking
+// likes
 export function fetchingUsersLikes (uid) {
   return ref.child(`usersLikes/${uid}`).once('value').then(snapshot => snapshot.val() || {})
 }
@@ -52,4 +52,38 @@ export function incrementNumberOfLikes (duckId) {
 
 export function decrementNumberOfLikes (duckId) {
   return ref.child(`likeCount/${duckId}`).transaction((currentValue = 0) => currentValue - 1)
+}
+
+// fetch user
+export function fetchUsersDucks (uid) {
+  return ref.child(`usersDucks/${uid}`).once('value').then(snapshot => snapshot.val())
+}
+
+export function fetchUser (uid) {
+  return ref.child(`users/${uid}`).once('value').then(snapshot => snapshot.val())
+}
+
+// fetch duck details
+export function fetchDuck (duckId) {
+  return ref.child(`ducks/${duckId}`).once('value').then(snapshot => snapshot.val())
+}
+
+export function fetchLikeCount (duckId) {
+  return ref.child(`likeCount/${duckId}`).once('value').then(snapshot => snapshot.val() || 0)
+}
+
+// replies
+export function fetchReplies (duckId) {
+  return ref.child(`replies/${duckId}`).once('value').then(snapshot => snapshot.val() || {})
+}
+
+export function postReply (duckId, reply) {
+  const replyId = ref.child(`replies/${duckId}`).push().key
+  const replyWithId = { ...reply, replyId }
+  const replyPromise = ref.child(`replies${duckId}/${replyId}`).set(replyWithId)
+
+  return {
+    replyWithId,
+    replyPromise,
+  }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { hashHistory, IndexRoute, Route, Router } from 'react-router'
 import {
   AuthenticateContainer,
+  DuckDetailsContainer,
   FeedContainer,
   HomeContainer,
   LogoutContainer,
@@ -16,7 +17,8 @@ export default function getRoutes (checkAuth) {
         <Route path="auth" component={AuthenticateContainer} onEnter={checkAuth} />
         <Route path="feed" component={FeedContainer} onEnter={checkAuth} />
         <Route path="logout" component={LogoutContainer} />
-        <Route path=":uid" component={UserContainer} />
+        <Route path=":uid" component={UserContainer} onEnter={checkAuth} />
+        <Route path="duckDetail/:duckId" component={DuckDetailsContainer} onEnter={checkAuth} />
         <IndexRoute component={HomeContainer} onEnter={checkAuth} />
       </Route>
     </Router>

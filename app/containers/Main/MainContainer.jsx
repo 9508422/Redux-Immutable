@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as userActionCreators from 'redux/modules/users'
+import * as usersActionCreators from 'redux/modules/users'
 import * as usersLikesActionCreators from 'redux/modules/usersLikes'
 import { Navigation } from 'components'
 import { firebaseAuth } from 'config/constants'
@@ -56,5 +56,5 @@ MainContainer.propTypes = {
 
 export default connect(
   ({ users }) => ({ isAuthed: users.isAuthed, isFetching: users.isFetching }),
-  dispatch => bindActionCreators({ ...userActionCreators, ...usersLikesActionCreators }, dispatch)
+  dispatch => bindActionCreators({ ...usersActionCreators, ...usersLikesActionCreators }, dispatch)
 )(MainContainer)

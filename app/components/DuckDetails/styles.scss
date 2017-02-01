@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  flex: 4;
+}
+
+.main-container {
+  padding: 20px;
+  margin: 20px;
+}
+
+.replies {
+  flex: 3;
+}

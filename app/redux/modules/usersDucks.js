@@ -1,3 +1,6 @@
+import { fetchUsersDucks } from 'helpers/api'
+import { addMultipleDucks } from 'redux/modules/ducks'
+
 const ADD_SINGLE_USERS_DUCK = 'ADD_SINGLE_USERS_DUCK'
 const FETCHING_USERS_DUCKS = 'FETCHING_USERS_DUCKS'
 const FETCHING_USERS_DUCKS_ERROR = 'FETCHING_USERS_DUCKS_ERROR'
@@ -31,6 +34,20 @@ function fetchingUsersDucksSuccess (uid, duckIds, lastUpdated) {
     uid,
     duckIds,
     lastUpdated,
+  }
+}
+
+export function fetchAndHandleUsersDucks (uid) {
+  return (dispatch, getState) => {
+    dispatch(fetchingUsersDucks())
+
+    fetchUsersDucks(uid)
+      .then(ducks => dispatch(addMultipleDucks(ducks)))
+      .then(({ ducks }) => {
+        const duckIds = Object.keys(ducks).sort((a, b) => ducks[b].timestamp - ducks[a].timestamp)
+        dispatch(fetchingUsersDucksSuccess(uid, duckIds, Date.now()))
+      })
+      .catch(error => dispatch(fetchingUsersDucksError(error)))
   }
 }
 

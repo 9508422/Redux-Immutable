@@ -1,4 +1,4 @@
-import { saveDuck } from 'helpers/api'
+import { fetchDuck, saveDuck } from 'helpers/api'
 import { closeModal } from './modal'
 import { addSingleUsersDuck } from './usersDucks'
 
@@ -29,7 +29,8 @@ function fetchingDuck () {
   }
 }
 
-function fetchingDuckError () {
+function fetchingDuckError (error) {
+  console.error(error)
   return {
     type: FETCHING_DUCK_ERROR,
     error: 'Error fetching Duck',
@@ -43,7 +44,7 @@ function fetchingDuckSuccess (duck) {
   }
 }
 
-function removeFetching () {
+export function removeFetching () {
   return {
     type: REMOVE_FETCHING,
   }
@@ -59,6 +60,15 @@ export function duckFanout (duck) {
         dispatch(addSingleUsersDuck(uid, duckWithId.duckId))
       })
       .catch(error => console.error('Error in duckFanout: ', error))
+  }
+}
+
+export function fetchAndHandleDuck (duckId) {
+  return (dispatch) => {
+    dispatch(fetchingDuck())
+    fetchDuck(duckId)
+      .then(duck => dispatch(fetchingDuckSuccess(duck)))
+      .catch(error => dispatch(fetchingDuckError(error)))
   }
 }
 
